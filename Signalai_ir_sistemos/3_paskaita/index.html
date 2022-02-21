@@ -80,21 +80,27 @@
   </head>
   <body>
     <div class="reveal">
-      <div class="slides"><section  data-markdown><script type="text/template">## Sistemos: tipai ir savybės</script></section><section  data-markdown><script type="text/template">### Sistema
+      <div class="slides"><section  data-markdown><script type="text/template">#### Signalai ir sistemos
+## Sistemų tipai ir savybės
+Paulius Tervydis</script></section><section  data-markdown><script type="text/template">### Sistema
 - ***Sistema*** transformuoja ***įvesties*** signalus į ***išvesties*** signalus.
 - Pavyzdžiai: 
-	- radijo imtuvas  
-	- stiprintuvas   
-	- modemas  
+	- radijo imtuvas 
+	- stiprintuvas 
+	- modemas 
 	- mikrofonas 
-	- mobilusis telefonas </script></section><section  data-markdown><script type="text/template">### Matematinis aprašymas
-- Matematiškai ir signalai, ir sistemos gali būti aprašytos matematinėmis funkcijomis.
-- *Signalą* galima aprašyti *matematine funkcija*, pagal kurią, pavyzdžiui, įtampos amplitudė kinta laike.  
+	- mobilusis telefonas </script></section><section  data-markdown><script type="text/template">### Sistemos blokinė diagrama
+- Sistemos dažnai vaizduojamos kaip ***blokinė diagrama***: 
+<p style="line-height: 0" class="reset-paragraph"><img src="images/Sistema_diag_1.svg" alt="" style="width: 400px; height: 100px"></img></p>
+- Stačiakampiai žymi sistemas; rodyklės rodo įvestis ir išvestis. 
+- Žymėjimas: `$y = S(x)$` reiškia, kad sistema `$S$` veikia įvesties signalą `$x$`, kad sukurtų išvesties signalą `$y$`.</script></section><section  data-markdown><script type="text/template">### Matematinis aprašymas
+- Ir signalus, ir sistemas galma aprašyti matematinėmis funkcijomis.
+- *Signalą* galima aprašyti *matematine funkcija*, pagal kurią, pavyzdžiui, įtampos amplitudė kinta laike. 
 - *Sistemą* galima aprašyti *matematine funkcija*, pagal kurią atliekami pakeitimai įėjimo signalui ir suformuojamas išėjimo signalas. </script></section><section  data-markdown><script type="text/template">### Įvestis ir išvestis
-- ***Vienos įvesties ir vienos išvesties*** (Single Input Single Output (SISO)) sistemos.  
-- Sistemos, turinčios daug įėjimų ir vieną išvestį, vadinamos ***daugelio įvesčių ir vienos išvesties*** (Multiple Input Single Output (MISO)) sistemomis.  
+- ***Vienos įvesties ir vienos išvesties*** (Single Input Single Output (SISO)) sistemos. 
+- Sistemos, turinčios daug įėjimų ir vieną išvestį, vadinamos ***daugelio įvesčių ir vienos išvesties*** (Multiple Input Single Output (MISO)) sistemomis. 
 - Sistemos, turinčios daug įėjimų ir daug išėjimų, vadinamos ***daugelio įvesčių ir daugelio išvesčių*** (Multiple Input Multiple Output (MIMO)) sistemomis.</script></section><section  data-markdown><script type="text/template">### Tolydaus ir diskretinio laiko sistemos
-- Sistemos gali būti klasifikuojamos ir pagal *įvesties ir išvesties signalų tipus*:
+- Sistemos gali būti klasifikuojamos ir pagal *įvesties ir išvesties signalų tipus*
 - ***Tolydaus laiko sistema*** turi tolydaus laiko įvestis ir išvestis.
 - ***Diskretinio laiko sistema*** turi diskretinio laiko įvestis ir išvestis.
 - ***Hibridinės sistemos*** taip pat yra labai svarbios (pvz., A/S, S/A keitikliai).</script></section><section  data-markdown><script type="text/template">### Deterministinės ir stochastinės sistemos
@@ -102,23 +108,19 @@
 - Sistema yra ***deterministinė***, jei įvesties ir išvesties signaluose nėra atsitiktinumo.
 - Nedeterministinė sistema vadinama ***stochastine***, kuri (skirtingai nei deterministinė) ne visada duoda tą patį rezultatą tam pačiam įvesties signalui.</script></section><section  data-markdown><script type="text/template">  ### Kauzalinės ir nekauzalinės sistemos
 - Sistema yra ***kauzalinė***, jei sistemos išvestis `$y(t_0)$` laiko momentu `$𝑡 = 𝑡_0$` nepriklauso nuo įvesties `$𝑥(𝑡)$` reikšmių `$𝑡 > 𝑡_0$`. Kitaip tariant, *kauzalinės* sistemos išvesties signalo `$𝑦(𝑡)$` vertė priklauso tik nuo įvesties signalo `$𝑥(𝑡)$` dabartinės ir ankstesnių verčių. 
-- Taigi, jei įvestis į kauzalinę sistemą yra lygi nuliui, kai `$𝑡 < 𝑡_0$`, tai šios sistemos išvestis taip pat yra lygi nuliui, kai `$𝑡 < 𝑡_0$`. </script></section><section  data-markdown><script type="text/template"> ### Kauzalinės ir nekauzalinės sistemos
+- Taigi, jei įvestis į kauzalinę sistemą yra lygi nuliui, kai `$𝑡 < 𝑡_0,$` tai šios sistemos išvestis taip pat yra lygi nuliui, kai `$𝑡 < 𝑡_0$`. </script></section><section  data-markdown><script type="text/template"> ### Kauzalinės ir nekauzalinės sistemos
 - Atitinkamai, diskretinio laiko sistema yra ***kauzalinė***, jei jos išvestis `$𝑦[𝑛_0]$` laiko momentu `$𝑛= 𝑛_0$` priklauso tik nuo įvesties signalo `$𝑥[𝑛]$` reikšmių, kurioms `$𝑛 \leq 𝑛_0$`. 
 - Nerealiu laiku (įrašų) duomenis apdorojanti sistema gali būti ***nekauzalinė***, jei apskaičiuojant išvesties signalo `$𝑦(𝑡_0)$` vertę naudojamos įvesties `$𝑥(𝑡)$` vertės, kurių `$𝑡 > 𝑡_0$`.</script></section><section  data-markdown><script type="text/template">### Statinės ir dinaminės sistemos
 - ***Sistema be atminties*** (arba ***statinė***), jei dabartinė išvesties signalo vertė priklauso tik nuo dabartinės įvesties signalo vertės
 	- Pavyzdžiui, idealus stiprintuvas
 - ***Sistema su atmintimi*** (arba ***dinaminė***) turi išvesties signalą, kuris priklauso nuo įvesties signalo verčių praeityje ar ateityje.
-	- Pavyzdžiui, energiją kaupiantys grandinių elementai, tokie kaip kondensatoriai ir ritės</script></section><section  data-markdown><script type="text/template">### Blokinės diagramos
-- Sistemos dažnai vaizduojamos kaip ***blokinė diagrama***: 
-<p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220152812.png" alt="" style="width: 300px"></img></p>
-- Stačiakampiai žymi sistemas; rodyklės rodo įvestis ir išvestis.  
-- Žymėjimas: `$y = S(x)$`, tai reiškia, kad sistema `$S$` veikia įvesties signalą `$x$`, kad sukurtų išvesties signalą `$y$`.</script></section><section  data-markdown><script type="text/template">### Mastelio keitimo sistema
-- Mastelio keitimo sistema: `$y(t) = ax(t)$`, kur `$a$` vadinamas stiprinimo arba mastelio keitimo koeficientu.
-- Veiks kaip stiprintuvas, jei `$|a|>1$`.  
-- Veiks kaip slopintuvas, jei `$|a|<1$`.  
-- Invertuos signalą amplitudės ašyje, jei `$a<0$`.  
+	- Pavyzdžiui, energiją kaupiantys grandinių elementai, tokie kaip kondensatoriai ir ritės</script></section><section  data-markdown><script type="text/template">### Mastelio keitimo sistema
+- Mastelio keitimo sistema: `$y(t) = ax(t)$`, kur `$a$` vadinamas *stiprinimo arba mastelio keitimo koeficientu*.
+- Veiks kaip ***stiprintuvas***, jei `$|a|>1$`. 
+- Veiks kaip **slopintuvas**, jei `$|a|<1$`. 
+- *Invertuos* signalą amplitudės ašyje, jei `$a<0$`. 
 - Žymėjimas blokinėje diagramoje:
-<p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220153909.png" alt="" style="width: 600px"></img></p></script></section><section  data-markdown><script type="text/template">### Diferencijuojančios ir integruojančios sistemos
+<p style="line-height: 0" class="reset-paragraph"><img src="images/Sistema_diag_2.svg" alt="" style="width: 600px; height: 100px"></img></p></script></section><section  data-markdown><script type="text/template">### Diferencijuojančios ir integruojančios sistemos
 - ***Diferenciatorius***: 
 `$y(t) = x^{′}(t)$`
 <p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220155711.png" alt="" style="width: 400px"></img></p>
@@ -128,7 +130,7 @@
 - ***Perkėlimo laike sistema***: 
 `$$y(t) = x(t - T)$$`
 - Vadinama ***vėlinimo sistema***, jei `$T > 0$`
-- Vadinama ***ankstinimo sistema***, jei `$T < 0$`</script></section><section  data-markdown><script type="text/template">### Konvoliucijos sistema   
+- Vadinama ***ankstinimo sistema***, jei `$T < 0$`</script></section><section  data-markdown><script type="text/template">### Konvoliucijos sistema 
 - ***Konvoliucijos (sąsūkos) sistema***: 
 `$$y(t)=\int x(t-\tau)h(\tau) \,d \tau$$`
 kur `$h$` yra tam tikra funkcija su kuria atlekama `$x$` signalo konvoliucija.</script></section><section  data-markdown><script type="text/template">### Sistemos su keliomis įvestimis
