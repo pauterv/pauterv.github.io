@@ -94,46 +94,12 @@ Paulius Tervydis</script></section><section  data-markdown><script type="text/te
 <p style="line-height: 0" class="reset-paragraph"><img src="images/Sistema_diag_1.svg" alt="" style="width: 400px; height: 100px"></img></p>
 - Stačiakampiai žymi sistemas; rodyklės rodo įvestis ir išvestis. 
 - Žymėjimas: `$y = S(x)$` reiškia, kad sistema `$S$` veikia įvesties signalą `$x$`, kad sukurtų išvesties signalą `$y$`.</script></section><section  data-markdown><script type="text/template">### Matematinis aprašymas
-- Ir signalus, ir sistemas galma aprašyti matematinėmis funkcijomis.
+- Ir signalus, ir sistemas galima aprašyti matematinėmis funkcijomis.
 - *Signalą* galima aprašyti *matematine funkcija*, pagal kurią, pavyzdžiui, įtampos amplitudė kinta laike. 
-- *Sistemą* galima aprašyti *matematine funkcija*, pagal kurią atliekami pakeitimai įėjimo signalui ir suformuojamas išėjimo signalas. </script></section><section  data-markdown><script type="text/template">### Įvestis ir išvestis
+- *Sistemą* galima aprašyti *matematine funkcija*, pagal kurią atliekami pakeitimai įėjimo signalui ir suformuojamas išėjimo signalas.</script></section><section  data-markdown><script type="text/template">### Įvestis ir išvestis
 - ***Vienos įvesties ir vienos išvesties*** (Single Input Single Output (SISO)) sistemos. 
 - Sistemos, turinčios daug įėjimų ir vieną išvestį, vadinamos ***daugelio įvesčių ir vienos išvesties*** (Multiple Input Single Output (MISO)) sistemomis. 
-- Sistemos, turinčios daug įėjimų ir daug išėjimų, vadinamos ***daugelio įvesčių ir daugelio išvesčių*** (Multiple Input Multiple Output (MIMO)) sistemomis.</script></section><section  data-markdown><script type="text/template">### Tolydaus ir diskretinio laiko sistemos
-- Sistemos gali būti klasifikuojamos ir pagal *įvesties ir išvesties signalų tipus*
-- ***Tolydaus laiko sistema*** turi tolydaus laiko įvestis ir išvestis.
-- ***Diskretinio laiko sistema*** turi diskretinio laiko įvestis ir išvestis.
-- ***Hibridinės sistemos*** taip pat yra labai svarbios (pvz., A/S, S/A keitikliai).</script></section><section  data-markdown><script type="text/template">### Deterministinės ir stochastinės sistemos
-- Kita sistemų klasifikacija yra skirstant jas į *stochastines ir deterministines sistemas*.
-- Sistema yra ***deterministinė***, jei įvesties ir išvesties signaluose nėra atsitiktinumo.
-- Nedeterministinė sistema vadinama ***stochastine***, kuri (skirtingai nei deterministinė) ne visada duoda tą patį rezultatą tam pačiam įvesties signalui.</script></section><section  data-markdown><script type="text/template">  ### Kauzalinės ir nekauzalinės sistemos
-- Sistema yra ***kauzalinė***, jei sistemos išvestis `$y(t_0)$` laiko momentu `$𝑡 = 𝑡_0$` nepriklauso nuo įvesties `$𝑥(𝑡)$` reikšmių `$𝑡 > 𝑡_0$`. Kitaip tariant, *kauzalinės* sistemos išvesties signalo `$𝑦(𝑡)$` vertė priklauso tik nuo įvesties signalo `$𝑥(𝑡)$` dabartinės ir ankstesnių verčių. 
-- Taigi, jei įvestis į kauzalinę sistemą yra lygi nuliui, kai `$𝑡 < 𝑡_0,$` tai šios sistemos išvestis taip pat yra lygi nuliui, kai `$𝑡 < 𝑡_0$`. </script></section><section  data-markdown><script type="text/template"> ### Kauzalinės ir nekauzalinės sistemos
-- Atitinkamai, diskretinio laiko sistema yra ***kauzalinė***, jei jos išvestis `$𝑦[𝑛_0]$` laiko momentu `$𝑛= 𝑛_0$` priklauso tik nuo įvesties signalo `$𝑥[𝑛]$` reikšmių, kurioms `$𝑛 \leq 𝑛_0$`. 
-- Nerealiu laiku (įrašų) duomenis apdorojanti sistema gali būti ***nekauzalinė***, jei apskaičiuojant išvesties signalo `$𝑦(𝑡_0)$` vertę naudojamos įvesties `$𝑥(𝑡)$` vertės, kurių `$𝑡 > 𝑡_0$`.</script></section><section  data-markdown><script type="text/template">### Statinės ir dinaminės sistemos
-- ***Sistema be atminties*** (arba ***statinė***), jei dabartinė išvesties signalo vertė priklauso tik nuo dabartinės įvesties signalo vertės
-	- Pavyzdžiui, idealus stiprintuvas
-- ***Sistema su atmintimi*** (arba ***dinaminė***) turi išvesties signalą, kuris priklauso nuo įvesties signalo verčių praeityje ar ateityje.
-	- Pavyzdžiui, energiją kaupiantys grandinių elementai, tokie kaip kondensatoriai ir ritės</script></section><section  data-markdown><script type="text/template">### Mastelio keitimo sistema
-- Mastelio keitimo sistema: `$y(t) = ax(t)$`, kur `$a$` vadinamas *stiprinimo arba mastelio keitimo koeficientu*.
-- Veiks kaip ***stiprintuvas***, jei `$|a|>1$`. 
-- Veiks kaip **slopintuvas**, jei `$|a|<1$`. 
-- *Invertuos* signalą amplitudės ašyje, jei `$a<0$`. 
-- Žymėjimas blokinėje diagramoje:
-<p style="line-height: 0" class="reset-paragraph"><img src="images/Sistema_diag_2.svg" alt="" style="width: 600px; height: 100px"></img></p></script></section><section  data-markdown><script type="text/template">### Diferencijuojančios ir integruojančios sistemos
-- ***Diferenciatorius***: 
-`$y(t) = x^{′}(t)$`
-<p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220155711.png" alt="" style="width: 400px"></img></p>
-- ***Integratorius***: 
-`$y(t)=\int_{a}^{t} x(\tau) \,d \tau$`, (`$a$` dažnai yra `$0$` arba  `$-\infty$`)
-<p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220155716.png" alt="" style="width: 400px"></img></p></script></section><section  data-markdown><script type="text/template">### Perkėlimo laike sistema
-- ***Perkėlimo laike sistema***: 
-`$$y(t) = x(t - T)$$`
-- Vadinama ***vėlinimo sistema***, jei `$T > 0$`
-- Vadinama ***ankstinimo sistema***, jei `$T < 0$`</script></section><section  data-markdown><script type="text/template">### Konvoliucijos sistema 
-- ***Konvoliucijos (sąsūkos) sistema***: 
-`$$y(t)=\int x(t-\tau)h(\tau) \,d \tau$$`
-kur `$h$` yra tam tikra funkcija su kuria atlekama `$x$` signalo konvoliucija.</script></section><section  data-markdown><script type="text/template">### Sistemos su keliomis įvestimis
+- Sistemos, turinčios daug įėjimų ir daug išėjimų, vadinamos ***daugelio įvesčių ir daugelio išvesčių*** (Multiple Input Multiple Output (MIMO)) sistemomis.</script></section><section  data-markdown><script type="text/template">### Sistemos su keliomis įvestimis
 - Įvestys `$x_1(t)$`, `$x_2(t)$` ir išvestis `$y(t)$`
 - Signalų sumavimą atliekanti sistema:
 `$$y(t) = x_1(t) + x_2(t)$$`
@@ -150,44 +116,76 @@ Mes galime sujungti sistemas, kad suformuotume naujas sistemas.
 - grįžtamasis ryšys: `$y = F(x - G(y))$`
 <p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220162517.png" alt="" style="width: 300px"></img></p></script></section><section  data-markdown><script type="text/template">### Sistemų sujungimas
 Bendruoju atveju:
-- blokinės diagramos grafiškai apibūdina sistemų ryšį (susiejimą);  
+- blokinės diagramos grafiškai apibūdina sistemų ryšį (susiejimą); 
 - tą patį galima padaryti užrašant matematines lygtis, susijusias su signalų keitimu ir perdavimu iš vienos sistemos į kitą;  
-- esant reikalui galima pereiti iš blokinių diagramų į matematinį aprašymą ir atvirkščiai.</script></section><section  data-markdown><script type="text/template">### Tiesiškumas
-- Sistema `$F$` yra ***tiesinė***, jei tenkinamos šios dvi ***superpozicijos*** savybės:
-1.	***Homogeniškumas***: jei `$x$` yra bet koks signalas ir `$a$` yra bet koks skaliaras, `$$F(ax) = aF(x)$$`
-1. ***Adityvumas***: jei `$x_1$` ir `$x_2$` yra du signalai, `$$F(x_1+x_2)=F(x_1)+F(x_2)$$`  </script></section><section  data-markdown><script type="text/template">### Tiesiškumas
-- Kitais žodžiais tariant, ***tiesiškumas*** reiškia:
-  - Mastelio keitimas prieš arba po sistemos duoda tą patį rezultatą.  
-  - Signalų sumavimas prieš arba po sistemos duoda tą patį rezultatą.</script></section><section  data-markdown><script type="text/template">### Tiesiškumas
-- Tiesinėms sistemoms šios blokinių diagramų poros yra lygiavertės:
-<p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220213739.png" alt="" ></img></p></script></section><section  data-markdown><script type="text/template">### Tiesiškumas
-- *Tiesinių sistemų pavyzdžiai*: mastelio keitimo sistema, diferenciatorius, integratorius, slenkantis vidurkis, laiko poslinkis, konvoliucija, moduliatorius, diskretizatorius.  
-- *Netiesinių sistemų pavyzdžiai*: ženklų detektorius, daugiklis (kartais), komparatorius, adaptyvus filtras</script></section><section  data-markdown><script type="text/template">### Tiesiškumas
-- Daugintuvas kaip moduliatorius: `$y(t) = x(t) cos⁡(2\pi ft)$` yra tiesinė sistema.
-<p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220213949.png" alt="" style="width: 200px"></img></p>
-- Daugintuvas kaip kėlimo kvadratu sistema: `$y(t) = x^2(t)$` yra netiesinė sistema.
-<p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220214015.png" alt="" style="width: 200px"></img></p></script></section><section  data-markdown><script type="text/template">### Invariantinė laike
+- esant reikalui galima pereiti iš blokinių diagramų į matematinį aprašymą ir atvirkščiai.</script></section><section  data-markdown><script type="text/template">### Tolydaus ir diskretinio laiko sistemos
+- Sistemos gali būti klasifikuojamos ir pagal *įvesties ir išvesties signalų tipus*
+- ***Tolydaus laiko sistema*** turi tolydaus laiko įvestis ir išvestis.
+- ***Diskretinio laiko sistema*** turi diskretinio laiko įvestis ir išvestis.
+- ***Hibridinės sistemos*** taip pat yra labai svarbios (pvz., A/S, S/A keitikliai).</script></section><section  data-markdown><script type="text/template">### Deterministinės ir stochastinės sistemos
+- Kita sistemų klasifikacija yra skirstant jas į *stochastines ir deterministines sistemas*.
+- Sistema yra ***deterministinė***, jei įvesties ir išvesties signaluose nėra atsitiktinumo.
+- Nedeterministinė sistema vadinama ***stochastine***, kuri (skirtingai nei deterministinė) ne visada duoda tą patį rezultatą tam pačiam įvesties signalui.</script></section><section  data-markdown><script type="text/template">### Mastelio keitimo sistema
+- Mastelio keitimo sistema: `$y(t) = ax(t)$`, kur `$a$` vadinamas *stiprinimo arba mastelio keitimo koeficientu*.
+- Veiks kaip ***stiprintuvas***, jei `$|a|>1$`. 
+- Veiks kaip **slopintuvas**, jei `$|a|<1$`. 
+- *Invertuos* signalą amplitudės ašyje, jei `$a<0$`. 
+- Žymėjimas blokinėje diagramoje:
+<p style="line-height: 0" class="reset-paragraph"><img src="images/Sistema_diag_2.svg" alt="" style="width: 600px; height: 100px"></img></p></script></section><section  data-markdown><script type="text/template">### Perkėlimo laike sistema
+- ***Perkėlimo laike sistema***: 
+`$$y(t) = x(t - T)$$`
+- Vadinama ***vėlinimo sistema***, jei `$T > 0$`
+- Vadinama ***ankstinimo sistema***, jei `$T < 0$`</script></section><section  data-markdown><script type="text/template">### Statinės ir dinaminės sistemos
+- ***Sistema be atminties*** (arba ***statinė***), jei dabartinė išvesties signalo vertė priklauso tik nuo dabartinės įvesties signalo vertės
+	- Pavyzdžiui, idealus stiprintuvas
+- ***Sistema su atmintimi*** (arba ***dinaminė***) turi išvesties signalą, kuris priklauso nuo įvesties signalo verčių praeityje ar ateityje.
+	- Pavyzdžiui, energiją kaupiantys grandinių elementai, tokie kaip kondensatoriai ir ritės</script></section><section  data-markdown><script type="text/template">  ### Kauzalinės ir nekauzalinės sistemos
+- Sistema yra ***kauzalinė***, jei sistemos išvestis `$y(t_0)$` laiko momentu `$𝑡 = 𝑡_0$` nepriklauso nuo įvesties `$𝑥(𝑡)$` reikšmių `$𝑡 > 𝑡_0$`. Kitaip tariant, *kauzalinės* sistemos išvesties signalo `$𝑦(𝑡)$` vertė priklauso tik nuo įvesties signalo `$𝑥(𝑡)$` dabartinės ir ankstesnių verčių. 
+- Taigi, jei įvestis į kauzalinę sistemą yra lygi nuliui, kai `$𝑡 < 𝑡_0,$` tai šios sistemos išvestis taip pat yra lygi nuliui, kai `$𝑡 < 𝑡_0$`. </script></section><section  data-markdown><script type="text/template"> ### Kauzalinės ir nekauzalinės sistemos
+- Atitinkamai, diskretinio laiko sistema yra ***kauzalinė***, jei jos išvestis `$𝑦[𝑛_0]$` laiko momentu `$𝑛= 𝑛_0$` priklauso tik nuo įvesties signalo `$𝑥[𝑛]$` reikšmių, kurioms `$𝑛 \leq 𝑛_0$`. 
+- Nerealiu laiku (įrašų) duomenis apdorojanti sistema gali būti ***nekauzalinė***, jei apskaičiuojant išvesties signalo `$𝑦(𝑡_0)$` vertę naudojamos įvesties `$𝑥(𝑡)$` vertės, kurių `$𝑡 > 𝑡_0$`.</script></section><section  data-markdown><script type="text/template">### Diferencijuojančios ir integruojančios sistemos
+- ***Diferenciatorius***: `$y(t) = x^{′}(t)$`
+<p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220155711.png" alt="" style="width: 400px"></img></p>
+- ***Integratorius***: `$y(t)=\int_{a}^{t} x(\tau) \,d \tau$`, (`$a$` dažnai yra `$0$` arba  `$-\infty$`)
+<p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220155716.png" alt="" style="width: 400px"></img></p></script></section><section  data-markdown><script type="text/template">### Konvoliucijos sistema 
+- ***Konvoliucijos (sąsūkos) sistema***: 
+`$$y(t)=\int x(t-\tau)h(\tau) \,d \tau$$`
+kur `$h$` yra tam tikra funkcija su kuria atlekama `$x$` signalo konvoliucija (apie tai daugiau sužinosite kitose paskaitose).</script></section><section  data-markdown><script type="text/template">### Invariantinė laike sistema
 - Sistema yra ***invariantinė laike***, jei laiko pokytis įvesties signale sukelia tokį patį laiko pokytį išvesties signale.
 - Jei `$F$` yra invariantinė laike sistema
 `$$y(t) = F(x(t))$$`
 tai reiškia, kad
 `$$y(t - \tau) = F(x(t - \tau))$$`
-bet kuriam laiko pokyčiui `$\tau$`.</script></section><section  data-markdown><script type="text/template">### Invariantinė laike
+bet kuriam laiko pokyčiui `$\tau$`.</script></section><section  data-markdown><script type="text/template">### Invariantinė laike sistema
 - Invariantinė laike sistema reiškia, kad vėlinimas neįtakoja sistemos `$F$` parametrų. Šios blokinės diagramos yra lygiavertės:
-<p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220214800.png" alt="" ></img></p>
-- Invariantiškumas laike yra svarbi sistemos savybė, kuri labai supaprastina sistemų analizę.</script></section><section  data-markdown><script type="text/template">### Sistemos stabilumas
-- Stabilumas svarbus daugumai inžinerinių sprendimų.  
+<p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220214800.png" alt="" style="width: 500px"></img></p>
+- Invariantiškumas laike (parametrų nekitimas laike) yra svarbi sistemos savybė, kuri labai supaprastina sistemų analizę.</script></section><section  data-markdown><script type="text/template">### Tiesinės sistemos
+- Sistema `$F$` yra ***tiesinė***, jei tenkinamos šios dvi ***superpozicijos*** savybės:
+1.	***Homogeniškumas***: jei `$x$` yra bet koks signalas ir `$a$` yra bet koks skaliaras, `$$F(ax) = aF(x)$$`
+1. ***Adityvumas***: jei `$x_1$` ir `$x_2$` yra du signalai, `$$F(x_1+x_2)=F(x_1)+F(x_2)$$`  </script></section><section  data-markdown><script type="text/template">### Tiesinės sistemos
+- Kitais žodžiais tariant, ***tiesiškumas*** reiškia:
+  - Mastelio keitimas prieš arba po sistemos duoda tą patį rezultatą.
+  - Signalų sumavimas prieš arba po sistemos duoda tą patį rezultatą.</script></section><section  data-markdown><script type="text/template">### Tiesinės sistemos
+- Tiesinėms sistemoms šios blokinių diagramų poros yra lygiavertės:
+<p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220213739.png" alt="" ></img></p></script></section><section  data-markdown><script type="text/template">### Tiesinės sistemos
+- *Tiesinių sistemų pavyzdžiai*: mastelio keitimo sistema, diferenciatorius, integratorius, slenkantis vidurkis, laiko poslinkis, konvoliucija, moduliatorius, diskretizatorius.  
+- *Netiesinių sistemų pavyzdžiai*: ženklų detektorius, daugiklis (kartais), komparatorius, adaptyvus filtras</script></section><section  data-markdown><script type="text/template">### Tiesinės sistemos
+- Daugintuvas kaip moduliatorius: `$y(t) = x(t) cos⁡(2\pi ft)$` yra *tiesinė sistema*.
+<p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220213949.png" alt="" style="width: 200px"></img></p>
+- Daugintuvas kaip kėlimo kvadratu sistema: `$y(t) = x^2(t)$` yra *netiesinė sistema*.
+<p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220214015.png" alt="" style="width: 200px"></img></p></script></section><section  data-markdown><script type="text/template">### Sistemos invertavimas
+Sistema yra ***invertuojanti*** (atvirkštinė), jei įvesties signalą galima atkurti iš išvesties signalo.
+- Jei `$F$` yra sistema, kuri gali būti invertuota, 
+`$$y = F(x)$$` tada jai atvirkštinė sistema `$F^{INV}$` bus tokia, kad
+`$$x = F^{INV}(y) = F^{INV}(F(x))$$`</script></section><section  data-markdown><script type="text/template">### Sistemos stabilumas
+- Sistemų stabilumas svarbus daugumai inžinerinių sprendimų. 
 - Sistema yra ***stabili***, jei esant apribotam įvesties signalui `$$|x(t)| \leq M_x< \infty$$`
 visada gaunamas apribotas išvesties signalas `$$|y(t)| \leq M_y < \infty,$$`
 kur `$M_x$` ir `$M_y$` yra baigtiniai teigiami skaičiai.</script></section><section  data-markdown><script type="text/template">### Sistemos stabilumas
 - Pavyzdys: Pastovaus greičio palaikymo sistema
-<p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220215422.png" alt="" ></img></p>
+<p style="line-height: 0" class="reset-paragraph"><img src="images/Pasted image 20220220215422.png" alt="" style="width: 500px"></img></p>
 - Tokios sistemos išvestis yra `$y = H(k(x - y))$`. 
-- Ši sistema gali tapti nestabili, jei `$k$` yra per didelis (priklausomai nuo `$H$`).</script></section><section  data-markdown><script type="text/template">### Sistemos invertavimas
-Sistema yra ***invertuojanti*** (atvirkštinė), jei įvesties signalą galima atkurti iš išvesties signalo.
-- Jei `$F$` yra sistema, kuri gali būti invertuota, 
-`$$y = F(x)$$` tada jai atvirkštinė sistema `$F^{INV}$` bus tokia, kad
-`$$x = F^{INV}(y) = F^{INV}(F(x))$$`</script></section><section  data-markdown><script type="text/template"></script></section></div>
+- Ši sistema gali tapti nestabili, jei `$k$` yra per didelis (priklausomai nuo `$H$`).</script></section><section  data-markdown><script type="text/template"></script></section></div>
     </div>
 
     <script src="dist/reveal.js"></script>
