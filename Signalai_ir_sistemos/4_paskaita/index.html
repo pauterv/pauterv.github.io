@@ -141,11 +141,11 @@ Tai yra uždelsimas ≈ 1 ir išlyginimas.</script></section><section  data-mark
 - ***Kryžminė koreliacija*** yra panaši į dviejų funkcijų konvoliuciją.
 - Signalų apdorojime kryžminė koreliacija yra dviejų masyvų arba signalų panašumo matas, priklausantis nuo vieno signalo poslinkio kito atžvilgiu. Tai dar vadinama slankiąja skaliarine sandauga.
 - Ji paprastai naudojamas ieškant ilgesniame signale trumpesnio, žinomo požymio.</script></section><section  data-markdown><script type="text/template">- Tolydinėms funkcijoms `$f$` ir `$g$` kryžminė koreliacija apibrėžiama taip:
-`$$(f\star g)(\tau)=r_{fg}(\tau)= \int_{t_1}^{t_2} \overline{f(t)}\cdot g(t+\tau)dt,$$`čia `$\overline{f(t)}$` - funkcijos `$f(t)$` kompleksinis jungtinis.</script></section><section  data-markdown><script type="text/template">### Autokoreliacija
+`$$(f\star g)(\tau)=r_{fg}(\tau)= \int_{-\infty}^\infty \overline{f(t)}\cdot g(t+\tau)dt,$$`čia `$\overline{f(t)}$` - funkcijos `$f(t)$` kompleksinis jungtinis.</script></section><section  data-markdown><script type="text/template">### Autokoreliacija
 - ***Autokoreliacija*** - tai signalo koreliacija su vėluojančia savo paties kopija kaip funkcija nuo vėlinimo dydžio. Neformaliai tai yra signalo ir jo suvėlintos versijos panašumas, priklausantis nuo vėlinimo tarp jų dydžio.
 - Autokoreliacija yra matematinė priemonė, padedanti rasti signale pasikartojančius dėsningumus, pavyzdžiui, triukšmo užgožtą periodinį signalą arba nustatyti nežinomą pagrindinį signalo dažnį. </script></section><section  data-markdown><script type="text/template">- Autokoreliacija dažnai naudojama signalų apdorojime analizuojant funkcijas arba verčių sekas, pavyzdžiui, laiko srities signalus.
 - Tolydžiai funkcijai `$f$`, autokoreliacija apibrėžiama taip:
-`$$r_{ff}(\tau)=\int_{t_1}^{t_2} \overline{f(t)}\cdot f(t+\tau)dt$$`</script></section></div>
+`$$r_{ff}(\tau)=\int_{-\infty}^\infty \overline{f(t)}\cdot f(t+\tau)dt$$`</script></section></div>
     </div>
 
     <script src="dist/reveal.js"></script>
