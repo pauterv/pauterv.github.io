@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			const size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">#### Signalai ir sistemos
+## Furjė eilutė
+Paulius Tervydis</script></section><section  data-markdown><script type="text/template">###  Furjė eilutė
+- Furjė eilutė - tai būdas periodinę funkciją pavaizduoti kaip sinusinių ir kosinusinių funkcijų sumą.
+- Neperiodinėms funkcijoms Furjė eilutė pakeičiama Furjė transformacija.
+<p style="line-height: 0" class="reset-paragraph"><img src="Files/Pasted image 20220308201440.png" alt="" ></img></p></script></section><section  data-markdown><script type="text/template"><p style="line-height: 0" class="reset-paragraph"><img src="Files/Pasted image 20220308201904.png" alt="" ></img></p></script></section><section  data-markdown><script type="text/template">###  Furjė eilutė
+- Naudojama tolydaus laiko periodiniams signalams.
+- Diskrečių dažnių spektras.
+<p style="line-height: 0" class="reset-paragraph"><img src="Files/Pasted image 20220308202908.png" alt="" ></img></p></script></section><section  data-markdown><script type="text/template">### Dirichlė sąlygos
+- Furjė eilutės gali būti naudojamos jei signalas tenkina tokias sąlygas:
+1. `$x(t)$` yra integruojamas per vieną periodą: `$\int_T |x(t)|dt<\infty$`
+2. Baigtiniame laiko intervale `$x(t)$`  turi baigtinį skaičių maksimumų ir minimumų.
+3. Baigtiniame laiko intervale `$x(t)$` turi baigtinį skaičių netolygumų.</script></section><section  data-markdown><script type="text/template">### Signalų pavyzdžiai, kai Dirichlė sąlygos netenkinamos
+<p style="line-height: 0" class="reset-paragraph"><img src="Files/Pasted image 20220308202305.png" alt="" ></img></p></script></section><section  data-markdown><script type="text/template">###  Pagrindinės Furjė eilutės formos
+#### 1. Trigonometrinė forma
+`$$x(t)=\frac{a_0}{2}+\sum_{n=1}^\infty a_n \cos(n \omega_0 t)+\sum_{n=1}^\infty b_n \sin(n \omega_0 t)$$`
+`$a_0=\frac{2}{T} \int_{-T/2}^{T/2} x(t) dt$`, <br>
+`$a_n=\frac{2}{T} \int_{-T/2}^{T/2} x(t) \cos(n \omega_0 t) dt$`, <br>
+`$b_n=\frac{2}{T} \int_{-T/2}^{T/2} x(t) \sin(n \omega_0 t) dt$`, <br>
+`$\omega_0=\frac{2 \pi}{T}$`</script></section><section  data-markdown><script type="text/template">#### 2. Trigonometrinė forma su faze
+`$$x(t)=A_0+\sum_{n=1}^\infty A_n \cos(\omega_n t + \Theta_n)$$`
+- Nuolatinė dedamoji: `$A_0=\frac{a_0}{2}$`, <br>
+- Harmonikos kampinis dažnis: `$\omega_n=n \omega_0$`,<br>
+- Harmonikos amplitudė: `$A_n=\sqrt{a_n^2+b_n^2}$`, <br>
+- Harmonikos fazė: `$\Theta_n=-tg^{-1}\left( \frac{b_n}{a_n}\right)$`</script></section><section  data-markdown><script type="text/template">#### 3. Kompleksinė forma:
+`$$x(t)=\sum_{n=-\infty}^{\infty}c_n e^{jn\omega_0 t}$$`
+`$$c_n=\frac{1}{T} \int_{-T/2}^{T/2} x(t) e^{-jn \omega_0 t} dt$$`</script></section><section  data-markdown><script type="text/template">###   Parsevalio teorema
+- Jei `$x(t)$` yra periodinis signalas, kurio periodas `$T$`
+- Tai *vidutinė signalo galia*
+   `$$P=\frac{1}{T} \int_{-T/2}^{T/2}x^2(t)dt$$`
+- Išreiškus signalą kaip `$x(t)=\sum_{n=-\infty}^{\infty} |c_k| e^{j k \omega_0 t}$`, `$t \in \mathbb{R}$`, *vidutinė signalo galia*
+   `$$P=\sum_{n=-\infty}^{\infty}|c_n |^2$$`</script></section><section  data-markdown><script type="text/template"></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealCustomControls,
+		  RevealMenu,
+		  RevealChalkboard, 
+        ],
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+
+		customcontrols: {
+			controls: [
+				{ icon: '<i class="fa fa-pen-square"></i>',
+				title: 'Toggle chalkboard (B)',
+				action: 'RevealChalkboard.toggleChalkboard();'
+				},
+				{ icon: '<i class="fa fa-pen"></i>',
+				title: 'Toggle notes canvas (C)',
+				action: 'RevealChalkboard.toggleNotesCanvas();'
+				},
+			]
+		},
+		menu: {
+			loadIcons: false
+		}
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":true,"transition":"slide","transitionSpeed":"default"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>
